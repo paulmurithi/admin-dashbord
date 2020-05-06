@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+}
+.container-fluid{
+    padding: 0 !important;
+}
+.side_nav{
+    background-color: #030a17;
+    height: 100vh; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    width:230px;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    z-index: 2;
+}  
+.side_nav #brand{
+    padding-top: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    font-size: 1.5em;
+}
+.side_nav #avatar{
+    max-width: 100px;
+    margin-top: 20px;
+    margin-left:30%;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+.side_nav #username{
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+}
+.side_nav ul{
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+}
+.side_nav li a{
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    padding: 10px 10px;
+    font-family: sans-serif;
+    transition: all .4s;
+}
+.side_nav li a .icon{
+    margin-right: 5px;
+}
+.side_nav li a:hover, .side_nav li a[class="active"]{
+    border-left: 2px solid #dddae7;
+    background-color: #231331;
+    padding-left: 12px;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding-left: 235px;
+    transition: padding .5s;
+    overflow-x: hidden;
+}
+.hidden{
+    display: none;
+}
+.content.extend{
+    padding-left: 0;
+}
+.top_navigation{
+    background-color: #ece9f3;
+    padding: 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.row{
+    padding: 0px;
+    margin: 0px;
+}
+.search_container{
+    text-align: center;
+}
+.top_navigation .toggle{
+    font-size: 1.5em;
+    border: none;
+    padding: 5px 0px;
+    background-color: transparent;
+    color: #9ab5c5;
+    cursor: pointer;
+}
+.top_navigation .toggle:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+#search{
+    background: transparent;
+    border: none;
+    padding: 5px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #999;
+    width: 65%;
+}
+#search:focus{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #dc3045;
+    outline: none;
+    box-shadow: none;
+}
+.search_button{
+    background-color: #999;
+    padding: 10px 14px;
+    border-radius: 50%;
+    border:none;
+    transition: all .4s;
+    color: #ffffff;
+}
+.search_button:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+.search_button:hover{
+    background-color: #030a17;
+    transform: translateY(-2px);
+}
+.icon_parent{
+    position: relative;
+}
+.icon_bullet::after{
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    background-color: #f44336;
+    border-radius: 50%;
+}
+
+.card-common{
+    box-shadow: 1px 2px 5px #999;
+}
+.card-common:hover{
+    box-shadow: 2px 3px 15px #999;
+    transform: translateY(-1px);
+    transition: all .5s;
+}
