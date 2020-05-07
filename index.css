@@ -5,6 +5,7 @@
 }
 body{
     position: relative;
+    background-color: #f8fafb;
 }
 .container-fluid{
     padding: 0 !important;
@@ -19,9 +20,12 @@ body{
     top: 0;
     margin: 0;
     z-index: 2;
-}  
+} 
+.btn-close{
+    display:none;
+} 
 .side_nav #brand{
-    padding-top: 15px;
+    padding-top: 10px;
     text-decoration: none;
     color: #ffffff;
     text-transform: capitalize;
@@ -31,10 +35,11 @@ body{
 }
 .side_nav #avatar{
     max-width: 100px;
-    margin-top: 20px;
-    margin-left:30%;
+    margin-top: 10px;
+    margin-left: 65px;
     border-radius: 50%;
     border: 2px solid #ffffff;
+    /* text-align: center; */
 }
 .side_nav #username{
     text-decoration: none;
@@ -86,14 +91,19 @@ body{
     top: 0;
     z-index: 1;
 }
-.row{
+.top_navigation.row{
     padding: 0px;
     margin: 0px;
+    width: 100%;
+}
+.top_navigation .row .col-1, .top_navigation .row .col-sm-1, .top_navigation .row .col-lg-1{
+    padding-right: 0;
 }
 .search_container{
     text-align: center;
 }
-.top_navigation .toggle{
+.top_navigation .toggle-large{
+    display: inline;
     font-size: 1.5em;
     border: none;
     padding: 5px 0px;
@@ -101,7 +111,10 @@ body{
     color: #9ab5c5;
     cursor: pointer;
 }
-.top_navigation .toggle:focus{
+.top_navigation .toggle-small{
+    display: none;
+}
+.top_navigation .toggle-large:focus, .top_navigation .toggle-small:focus{
     outline: none;
     box-shadow: none;
     border: none;
@@ -160,3 +173,65 @@ body{
     transform: translateY(-1px);
     transition: all .5s;
 }
+
+/* skills visualization styles */
+rect{
+    fill:steelblue;
+}
+text{
+    font-size: 1.5em;
+    font-family: sans-serif;
+}
+
+.tick text{
+    fill: #635f5d;
+}
+.tick line{
+    stroke: #c0c0bb;
+}
+
+.xAxis_label{
+    font-size: 2.5em;
+    fill: #8e8883;
+}
+.title{
+    fill: #635f5d;
+    font-size: 1.5em;
+}
+
+/* small devices */
+@media screen and (max-width: 767px) {
+    .content{
+        padding-left: 0;
+    } 
+    .side_nav{
+        display: block;
+        width: 0;
+     }
+    .top_navigation .toggle-large{
+        display: none;
+    }
+    .top_navigation .toggle-small{
+        display: inline;
+        font-size: 1.5em;
+        border: none;
+        padding: 5px 0px;
+        background-color: transparent;
+        color: #9ab5c5;
+        cursor: pointer;
+    }
+    .btn-close{
+	    display:block;
+		float:right;
+		padding: 0px 5px;
+		color:white;
+		text-decoration: none;
+		font-size: 2.5em;
+    }
+    .side-nav .btn-close:hover{
+	    color:red;
+    }
+    .side_nav #avatar{
+        margin-left: calc(100vw-50px);
+    }
+  }
