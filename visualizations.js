@@ -1,11 +1,13 @@
 // skills bar chart 
 const skills = d3.select('.skills_chart');
+console.log(document.body.offsetWidth);
+
 const skills_svg = skills.append('svg')
                 .attr('width','100%')
                 .attr('height', '100%');
 
 const margin = {
-    "top":20,
+    "top":40,
     "bottom":20,
     "left":60,
     "right":20
@@ -22,12 +24,12 @@ const skills_group = skills_svg.append('g')
 skills_group.append('text')
             .classed('title', true)
             .text('SKILLS ANALYSIS')
-            .attr('x', '30')
-            // .attr('y', '20');
+            .attr('x', '100')
+            .attr('y', '-10');
 
 const dataArray = [
     {
-        skill:"HTML",
+        skill:"Html",
         proficiency:90,
     },
     {
@@ -35,23 +37,23 @@ const dataArray = [
         proficiency:60,
     },
     {
-        skill:"vue",
+        skill:"Vue",
         proficiency:50,
     }, 
     {
-        skill:"laravel",
+        skill:"Laravel",
         proficiency:80,
     }, 
     {
-        skill:"d3",
+        skill:"D3",
         proficiency:75,
     }, 
     {
-        skill:"css",
+        skill:"Css",
         proficiency:83,
     },
     {
-        skill:"sass",
+        skill:"Sass",
         proficiency:70,
     },
     {
@@ -61,14 +63,15 @@ const dataArray = [
 ];
 
 // scale
-const xScale = d3.scaleLinear().domain([1, 100]).range([1, 500]);
+const xScale = d3.scaleLinear().domain([0, 100]).range([0, 500]);
 const yScale = d3.scaleBand()
                     .domain(dataArray.map(d=>d.skill))
-                    .range([1,330])
+                    .range([0,330])
                     .padding(0.1);
 
 // axes
 const xAxis = d3.axisBottom(xScale)
+                .ticks(10)
                 .tickSize(-325);
 const yAxis = d3.axisLeft(yScale);
 const xAxis_group = skills_group.append('g')
@@ -81,7 +84,7 @@ xAxis_group.append('text')
             .text('Proficiency')
             .classed('xAxis_label', true)
             .attr('x', '130')
-            // .attr('y', '300')
+            // .attr('y', '60')
             .attr('fill', 'black');
 
 // update Selection
@@ -91,7 +94,6 @@ let bars = skills_group.selectAll('rect')
                 .attr('width', d => xScale(d.proficiency))
                 .attr('height', yScale.bandwidth())
                 .attr('x', '0')
-                // .attr('fill','#b0c6ee')
                 .attr('y', d => yScale(d.skill));
 
 // enter
@@ -102,8 +104,12 @@ bars = skills_group.selectAll('rect')
             .attr('width', d => xScale(d.proficiency))
             .attr('height', yScale.bandwidth())
             .attr('x', '0')
-            // .attr('fill','#b0c6ee')
-            .attr('y', d => yScale(d.skill));
+            .attr('y', d => yScale(d.skill))
+            .on('click', d=>{
+                d3.select(this)
+                    .style('stroke', 'red');
+                    // .attr('stroke-width', '2')
+            });
 
 // exit
 bars.exit().remove();
